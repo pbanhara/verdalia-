@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verdália — O Diário dos Segredos Naturais</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="app">
+    <section id="menu" class="screen">
+      <div class="title-mark">✿</div>
+      <p class="eyebrow">UM PEQUENO MUNDO PARA DESCOBRIR</p>
+      <h1>Verdália</h1>
+      <p class="subtitle">O Diário dos Segredos Naturais</p>
+      <div class="menu-card">
+        <label for="playerName">Nome do explorador</label>
+        <input id="playerName" maxlength="18" placeholder="Seu nome" value="Explorador">
+        <div class="menu-actions">
+          <button id="newGame" class="primary">Novo jogo</button>
+          <button id="continueGame">Continuar</button>
+          <button id="manageSaves">Gerenciar saves</button>
+          <button id="creditsButton">Créditos</button>
+        </div>
+        <p class="hint">Dica: explore durante o dia e volte para casa antes que a floresta escureça.</p>
+      </div>
+    </section>
+
+    <section id="game" class="hidden">
+      <header class="hud">
+        <div class="brand"><span>✿</span> VERDÁLIA</div>
+        <div class="hud-stat"><span>♥</span><div class="health-track"><div id="healthFill"></div></div><b id="healthText">100/100</b></div>
+        <div class="hud-stat"><span>☼</span><b id="dayText">Dia 1</b></div>
+        <div class="hud-stat"><span>◷</span><b id="timeText">08:00</b></div>
+        <div class="hud-stat discoveries"><span>✧</span><b id="discoveryText">0/100</b></div>
+        <button id="pauseButton" class="small-button">Ⅱ</button>
+      </header>
+      <main class="game-layout">
+        <div class="canvas-wrap">
+          <canvas id="world" width="960" height="600" aria-label="Mundo de jogo"></canvas>
+          <div id="toast" class="toast"></div>
+          <div id="interactionHint" class="interaction-hint">WASD / setas: mover · E: observar · Espaço: atacar</div>
+          <div id="panel" class="panel hidden"></div>
+        </div>
+        <aside class="side-panel">
+          <div class="side-heading"><span>✦</span> Caderno de campo</div>
+          <p id="regionName" class="region-name">Pradaria Serena</p>
+          <p class="side-copy">Observe as espécies ao seu redor. Nem toda descoberta precisa ser coletada.</p>
+          <div class="quick-actions">
+            <button data-panel="journal">📖 Diário <kbd>J</kbd></button>
+            <button data-panel="inventory">🎒 Bolsa <kbd>I</kbd></button>
+            <button data-panel="map">🗺 Mapa <kbd>M</kbd></button>
+            <button data-panel="help">❔ Controles</button>
+          </div>
+          <div class="progress-label"><span>Catálogo botânico</span><b id="progressPercent">0%</b></div>
+          <div class="progress-track"><div id="progressFill"></div></div>
+          <div class="mini-stats">
+            <div><span>Itens na bolsa</span><b id="bagCount">0/20</b></div>
+            <div><span>Inimigos derrotados</span><b id="enemyCount">0</b></div>
+          </div>
+          <div class="side-tip"><b>✧ Nota de campo</b><p id="fieldNote">As flores mais discretas também guardam histórias.</p></div>
+          <button id="saveButton" class="save-button">Salvar progresso</button>
+          <button id="backMenu" class="text-button">Voltar ao menu</button>
+        </aside>
+      </main>
+      <footer class="toolbar">
+        <div class="tool-slot selected"><span>🗡️</span><small>1 · Espada</small></div>
+        <div class="tool-slot"><span>🔎</span><small>2 · Observar</small></div>
+        <div class="tool-slot"><span>🧺</span><small>3 · Coletar</small></div>
+        <div class="toolbar-note">Encontre espécies, registre-as no diário e descubra os segredos de Verdália.</div>
+      </footer>
+    </section>
+  </div>
+  <script src="./species.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
